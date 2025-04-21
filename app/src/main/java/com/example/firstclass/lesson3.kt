@@ -26,6 +26,7 @@ fun main() {
     for (i in mutableList.indices) {
         println(mutableList[i])
     }
+    dictionaryApp()
 }
 
 fun set(){
@@ -69,4 +70,26 @@ fun map(){
     println("Enter student name: ")
     val input2: String = readln().lowercase()
     println(studentMarks [input])
+}
+
+//Tasks
+fun dictionaryApp(){
+    val dictionary = mapOf(
+        "kotlin" to "A modern programming language targeting the JVM, Android, and more.",
+        "function" to "A block of code that performs a specific task.",
+        "variable" to "A container for storing data values.",
+        "loop" to "A control structure used to repeat a block of code.",
+        "class" to "A blueprint for creating objects in object-oriented programming."
+    )
+    print("Enter a word to get its meaning: ")
+    val userInput = readLine()?.lowercase()
+
+    val meaning = dictionary[userInput]
+
+    if (meaning != null) {
+        println("Meaning of '$userInput': $meaning")
+    } else {
+        println("Sorry, the word '$userInput' was not found in the dictionary.")
+    }
+
 }
