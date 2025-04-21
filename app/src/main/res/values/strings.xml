@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">first class</string>
+    <string name="title_activity_vjmbm">vjmbm</string>
+    <string name="title_activity_login">login</string>
 </resources>
