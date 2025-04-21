@@ -1,12 +1,11 @@
 package com.example.firstclass
 
-import androidx.compose.animation.scaleOut
 
 //list
-fun dispalyList(){
+fun displayList(){
     val numbers: List<String> = listOf("one","two","three")
     println("Number of elements:${numbers.size}")
-    println("third element: ${numbers.get(2)}")
+    println("third element: ${numbers[2]}")
     println("Second element: ${numbers[1]}")
     println("Index of element \"two\"${numbers.indexOf("two")}")
 
@@ -69,7 +68,7 @@ fun map(){
     studentMarks2.put("sabin",80)
     println("Enter student name: ")
     val input2: String = readln().lowercase()
-    println(studentMarks [input])
+    println(studentMarks [input2])
 }
 
 //Tasks
