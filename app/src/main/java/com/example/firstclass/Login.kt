@@ -1,8 +1,6 @@
 package com.example.firstclass
 
-import android.annotation.SuppressLint
 import android.os.Bundle
-import android.view.Surface
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -22,6 +20,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowLeft
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -32,15 +31,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
+
 class Login : ComponentActivity() {
-    @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -60,7 +58,8 @@ fun LoginBody(innerPadding: PaddingValues){
         Row (modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween) {
-        Icon(imageVector = Icons.Default.KeyboardArrowLeft,
+        Icon(
+            imageVector = Icons.Default.KeyboardArrowLeft,
 
             contentDescription = null,
 //            tint = Color.Green,
@@ -89,11 +88,17 @@ fun LoginBody(innerPadding: PaddingValues){
                 painter = painterResource(R.drawable.profile),
                 contentScale = ContentScale.Crop,
                 contentDescription = null,
-                modifier = Modifier.height(100.dp).width(100.dp).clip(
-                    shape = RoundedCornerShape(100.dp)
-                )
+                modifier = Modifier
+                    .height(100.dp)
+                    .width(100.dp)
+                    .clip(
+                        shape = RoundedCornerShape(100.dp)
+                    )
             )
-            Column {
+            Column (
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
                 Text(text = "174",
                     style = TextStyle(
                         fontSize = 15.sp,
@@ -105,7 +110,10 @@ fun LoginBody(innerPadding: PaddingValues){
                         fontWeight = FontWeight.Bold,
                     ))
             }
-            Column {
+            Column (
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
                 Text(text = "772k",
                     style = TextStyle(
                         fontSize = 15.sp,
@@ -117,7 +125,10 @@ fun LoginBody(innerPadding: PaddingValues){
                         fontWeight = FontWeight.Bold,
                     ))
             }
-            Column {
+            Column (
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
                 Text(text = "714",
                     style = TextStyle(
                         fontSize = 15.sp,
@@ -130,11 +141,34 @@ fun LoginBody(innerPadding: PaddingValues){
                     ))
             }
         }
+        Column (
+            modifier = Modifier.padding(20.dp)
+        ) {
+            Text(text = "Rijan Shiwakoti",
+                style = TextStyle(
+                    fontSize = 20.sp,
+                    fontWeight = FontWeight.Bold
+                ))
+            Text(text = "web designer", style = TextStyle(
+                fontSize = 15.sp,
+                fontWeight = FontWeight.Bold,
+                color = Color.LightGray
+            ))
+            Text(text = "www.rijan-protfolio.com", style = TextStyle(
+                color = Color.Blue
+            ))
+        }
     }
 }
 
-@Preview(showBackground = true)
+@Preview(showBackground = true, backgroundColor = 0xFFE0E0E0)
 @Composable
 fun PreviewBody() {
+    MaterialTheme{
+        Box ( modifier =  Modifier
+            .fillMaxSize()
+            .background(Color.White)) {
         LoginBody(innerPadding = PaddingValues(0.dp))
+        }
+    }
 }
