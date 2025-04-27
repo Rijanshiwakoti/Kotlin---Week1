@@ -18,14 +18,19 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.KeyboardArrowLeft
+import androidx.compose.material.icons.automirrored.filled.KeyboardArrowLeft
+import androidx.compose.material.icons.filled.KeyboardArrowDown
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
@@ -43,47 +48,54 @@ class Login : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            Scaffold { innerPadding->
+            Scaffold { innerPadding ->
                 LoginBody(innerPadding)
             }
         }
     }
 }
-@Composable
-fun LoginBody(innerPadding: PaddingValues){
-    Column(modifier = Modifier
-        .padding(innerPadding)
-        .fillMaxSize()
-        .background(color = Color.White)) {
-        Row (modifier = Modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween) {
-        Icon(
-            imageVector = Icons.Default.KeyboardArrowLeft,
 
-            contentDescription = null,
+@Composable
+fun LoginBody(innerPadding: PaddingValues) {
+    Column(
+        modifier = Modifier
+            .padding(innerPadding)
+            .fillMaxSize()
+            .background(color = Color.White)
+    ) {
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceBetween
+        ) {
+            Icon(
+                imageVector = Icons.AutoMirrored.Filled.KeyboardArrowLeft,
+                contentDescription = null,
 //            tint = Color.Green,
-            modifier = Modifier
-                .height(30.dp)
-                .width(30.dp),
-        )
-            Text(text = "Andrew",
+                modifier = Modifier
+                    .height(30.dp)
+                    .width(30.dp),
+            )
+            Text(
+                text = "Andrew",
                 style = TextStyle(
                     fontSize = 15.sp,
                     fontWeight = FontWeight.Bold,
 //                    fontStyle = FontStyle.Italic,
 //                    textDecoration = TextDecoration.Underline
-                ))
+                )
+            )
             Icon(
                 painter = painterResource(R.drawable.baseline_more_horiz_24),
                 contentDescription = null,
             )
 
         }
-        Row(modifier = Modifier.fillMaxWidth(),
+        Row(
+            modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceAround
-            ) {
+        ) {
             Image(
                 painter = painterResource(R.drawable.profile),
                 contentScale = ContentScale.Crop,
@@ -95,68 +107,150 @@ fun LoginBody(innerPadding: PaddingValues){
                         shape = RoundedCornerShape(100.dp)
                     )
             )
-            Column (
+            Column(
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Text(text = "174",
+                Text(
+                    text = "174",
                     style = TextStyle(
                         fontSize = 15.sp,
                         fontWeight = FontWeight.Bold,
-                    ))
-                Text(text = "Posts",
+                    )
+                )
+                Text(
+                    text = "Posts",
                     style = TextStyle(
                         fontSize = 15.sp,
                         fontWeight = FontWeight.Bold,
-                    ))
+                    )
+                )
             }
-            Column (
+            Column(
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Text(text = "772k",
+                Text(
+                    text = "772k",
                     style = TextStyle(
                         fontSize = 15.sp,
                         fontWeight = FontWeight.Bold,
-                    ))
-                Text(text = "Followers",
+                    )
+                )
+                Text(
+                    text = "Followers",
                     style = TextStyle(
                         fontSize = 15.sp,
                         fontWeight = FontWeight.Bold,
-                    ))
+                    )
+                )
             }
-            Column (
+            Column(
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Text(text = "714",
+                Text(
+                    text = "714",
                     style = TextStyle(
                         fontSize = 15.sp,
                         fontWeight = FontWeight.Bold,
-                    ))
-                Text(text = "Following",
+                    )
+                )
+                Text(
+                    text = "Following",
                     style = TextStyle(
                         fontSize = 15.sp,
                         fontWeight = FontWeight.Bold,
-                    ))
+                    )
+                )
             }
         }
-        Column (
-            modifier = Modifier.padding(20.dp)
+        Column(
+            modifier = Modifier.padding(20.dp, 10.dp),
         ) {
-            Text(text = "Rijan Shiwakoti",
+            Text(
+                text = "Andrew Queo",
                 style = TextStyle(
                     fontSize = 20.sp,
                     fontWeight = FontWeight.Bold
-                ))
-            Text(text = "web designer", style = TextStyle(
-                fontSize = 15.sp,
-                fontWeight = FontWeight.Bold,
-                color = Color.LightGray
-            ))
-            Text(text = "www.rijan-protfolio.com", style = TextStyle(
-                color = Color.Blue
-            ))
+                )
+            )
+            Text(
+                text = "Artist", modifier = Modifier.alpha(0.5f), style = TextStyle(
+                    fontSize = 18.sp,
+                    fontWeight = FontWeight.Bold,
+                )
+            )
+            Text(
+                text = "DESIGNER",
+                style = TextStyle(
+                    fontSize = 20.sp,
+                )
+            )
+            Text(
+                text = "isabella@art.design"
+            )
+            Text(
+                text = "followed by jena and anna"
+            )
+        }
+
+        Row(
+            modifier = Modifier
+                .padding(10.dp, 1.dp)
+                .fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceBetween,
+        ) {
+            Button(
+                onClick = {
+
+                },
+                shape = RoundedCornerShape(10.dp),
+                colors = ButtonDefaults.buttonColors(
+                    contentColor = Color.White,
+                    containerColor = Color.Blue
+                )
+            ) {
+                Text(text = "Follow")
+            }
+            OutlinedButton(
+                onClick = {
+
+                },
+                shape = RoundedCornerShape(10.dp),
+                colors = ButtonDefaults.outlinedButtonColors(
+                    contentColor = Color.Black,
+                ),
+
+                ) {
+                Text(text = "Message")
+            }
+            OutlinedButton(
+                onClick = {
+
+                },
+                shape = RoundedCornerShape(10.dp),
+                colors = ButtonDefaults.outlinedButtonColors(
+                    contentColor = Color.Black,
+                )
+            ) {
+                Text(text = "Email")
+            }
+            OutlinedButton(
+                onClick = {
+                },
+                shape = RoundedCornerShape(10.dp),
+                colors = ButtonDefaults.outlinedButtonColors(
+                    contentColor = Color.Black,
+                )
+            ) {
+                Icon(
+                    imageVector = Icons.Default.KeyboardArrowDown,
+                    contentDescription = null,
+                    tint = Color.Black
+                )
+            }
         }
     }
 }
@@ -164,11 +258,13 @@ fun LoginBody(innerPadding: PaddingValues){
 @Preview(showBackground = true, backgroundColor = 0xFFE0E0E0)
 @Composable
 fun PreviewBody() {
-    MaterialTheme{
-        Box ( modifier =  Modifier
-            .fillMaxSize()
-            .background(Color.White)) {
-        LoginBody(innerPadding = PaddingValues(0.dp))
+    MaterialTheme {
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(Color.White)
+        ) {
+            LoginBody(innerPadding = PaddingValues(0.dp))
         }
     }
 }

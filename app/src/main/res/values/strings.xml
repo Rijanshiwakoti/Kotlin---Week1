@@ -3,4 +3,5 @@
     <string name="title_activity_vjmbm">vjmbm</string>
     <string name="title_activity_login">login</string>
     <string name="title_activity_calculator">CalculatorActivity</string>
+    <string name="title_activity_card">Card</string>
 </resources>
